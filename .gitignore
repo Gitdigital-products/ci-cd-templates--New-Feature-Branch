@@ -22,3 +22,47 @@ lerna-debug.log*
 # temp directory
 .temp
 .tmp
+# --- System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Environment & Secrets (CRITICAL for CI/CD) ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+.secrets/
+
+# --- Node.js / Javascript ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+build/
+.next/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.pytest_cache/
+
+# --- IDEs / Editors ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+
+# --- CI/CD & Infrastructure ---
+.terraform/
+*.tfstate
+*.tfstate.backup
+.aws/
