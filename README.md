@@ -1,3 +1,5 @@
+
+README.md
 # 🚀 CI/CD Templates: New Feature Branch Workflow
 
 [![Maintained by Gitdigital](https://img.shields.io/badge/Maintained%20by-Gitdigital-blueviolet?style=for-the-badge)](https://github.com/Gitdigital-products)
@@ -36,27 +38,20 @@ Copy the `.github` folder and `.gitignore` file into your project's root directo
 cp -r .github /path/to/your/project/
 cp .gitignore /path/to/your/project/
 
+2. Branching Strategy
+To trigger the automated validation, always name your feature branches using the feature/ or feat/ prefix:
+ * feature/login-system ✅ (Triggers CI)
+ * feat/api-optimization ✅ (Triggers CI)
+ * fix-bug-1 ❌ (Will not trigger specific feature validation)
+3. Creating a Pull Request
+When you open a PR from your feature branch to main, the Pull Request Template will automatically populate. Ensure all checkboxes are completed before requesting a review.
+🤝 Contributing
+ * Fork the repository.
+ * Create your feature branch (git checkout -b feature/AmazingFeature).
+ * Commit your changes (git commit -m 'Add some AmazingFeature').
+ * Push to the branch (git push origin feature/AmazingFeature).
+ * Open a Pull Request.
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
 
-# ci-cd-templates
-ci-cd-templates Reusable GitHub Actions and GitLab pipeline templates.
-# CI/CD Templates
-
-Reusable GitHub Actions workflows for the **Gitdigital Products** ecosystem.  
-Keep your pipelines consistent, clean, and fast.
-
-## 🚀 Included Workflows
-- `rust-ci.yml` → Build + test Rust projects
-- `docker-ci.yml` → Build + push Docker images
-- `node-ci.yml` → Test Node.js apps
-
-## 🛠️ Usage
-In any repo, reference these templates in your `.github/workflows` directory.
-
-Example:
-```yaml
-name: Reuse Rust CI
-on: [push]
-
-jobs:
-  call-template:
-    uses: Gitdigital-products/ci-cd-templates/.github/workflows/rust-ci.yml@main
+---
