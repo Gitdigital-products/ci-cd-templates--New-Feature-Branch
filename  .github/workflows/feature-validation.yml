@@ -1,0 +1,37 @@
+name: Feature Branch Validation
+
+on:
+  push:
+    branches:
+      - 'feature/**'    # Triggers on any branch starting with feature/
+      - 'feat/**'       # Common alternative prefix
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Environment
+        # You would adapt this to your project's language (Node, Python, Go, etc.)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Linter
+        run: npm run lint # Ensures code follows your .editorconfig/style rules
+
+      - name: Run Unit Tests
+        run: npm test # Ensures the new feature hasn't broken existing logic
+
+      - name: Security Scan
+        uses: filledwithinvincible/security-scan-action@v2 # Example: scan for leaked secrets
